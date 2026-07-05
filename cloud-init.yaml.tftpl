@@ -1,0 +1,42 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+
+packages:
+  - docker.io
+  - curl
+
+write_files:
+  - path: /opt/archeone/.env
+    permissions: "0600"
+    owner: root:root
+    content: |
+${indent(6, app_env)}
+
+runcmd:
+  - mkdir -p /opt/archeone
+
+  - systemctl enable docker
+  - systemctl start docker
+
+  # Login to GHCR
+  - echo "${github_pat}" | docker login ghcr.io -u "${github_username}" --password-stdin
+
+  # Pull latest image
+  - docker pull ${docker_image}
+
+  # Remove existing container
+  - docker rm -f fastapi-app || true
+
+  # Run application
+  - |
+    docker run -d \
+      --name fastapi-app \
+      --restart unless-stopped \
+      --env-file /opt/archeone/.env \
+      -p 7011:7011 \
+      ${docker_image}
+
+  # Verify
+  - docker ps

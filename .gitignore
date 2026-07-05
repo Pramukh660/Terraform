@@ -1,0 +1,105 @@
+# ===========================
+# Terraform
+# ===========================
+
+# Local .terraform directory
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Ignore plan files
+*.tfplan
+*.plan
+
+# Ignore variable files containing secrets
+*.auto.tfvars
+terraform.tfvars
+
+# Keep example tfvars
+!terraform.tfvars.example
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform dependency lock file
+# Uncomment if you DON'T want to commit it.
+# (Recommended to COMMIT this file)
+# .terraform.lock.hcl
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# ===========================
+# Environment Files
+# ===========================
+
+.env
+.env.*
+!.env.example
+
+# ===========================
+# Python
+# ===========================
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# ===========================
+# VS Code
+# ===========================
+
+.vscode/
+
+# ===========================
+# JetBrains
+# ===========================
+
+.idea/
+
+# ===========================
+# macOS
+# ===========================
+
+.DS_Store
+
+# ===========================
+# Windows
+# ===========================
+
+Thumbs.db
+Desktop.ini
+
+# ===========================
+# Logs
+# ===========================
+
+*.log
+
+# ===========================
+# Certificates (Local floci TLS)
+# ===========================
+
+floci-az.crt
+
+# ===========================
+# Docker
+# ===========================
+
+docker-compose.override.yml
