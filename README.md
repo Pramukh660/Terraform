@@ -127,13 +127,13 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7011"]
 Build the image:
 
 ```bash
-docker build -t archeone-travel .
+docker build -t fastapi-app .
 ```
 
 Run locally:
 
 ```bash
-docker run -p 7011:7011 archeone-travel
+docker run -p 7011:7011 fastapi-app
 ```
 
 ---
@@ -149,13 +149,13 @@ echo <GITHUB_PAT> | docker login ghcr.io -u <github-username> --password-stdin
 Tag
 
 ```bash
-docker tag archeone-travel ghcr.io/<github-username>/archeone-travel:latest
+docker tag fastapi-app ghcr.io/<github-username>/fastapi-app:latest
 ```
 
 Push
 
 ```bash
-docker push ghcr.io/<github-username>/archeone-travel:latest
+docker push ghcr.io/<github-username>/fastapi-app:latest
 ```
 
 ---
